@@ -1,8 +1,13 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import FoodIcon from "../assets/Logo.jpg"
+import { useSelector } from 'react-redux';
+import { cartAction } from "../store/cart-slice";
 import "../cssFiles/header.css";
 function Header(props){
+    const cartItems = useSelector(state=> state.cart.cart)
+    console.log(cartItems);
+    
     const logout = props.log;
     const [isLoggedOut, setIsLoggedOut] = useState(logout);
     function handleLogin() {
@@ -33,7 +38,7 @@ function Header(props){
         </div>) :
         ( <div>
             <button ><Link id="button" to="/login" onClick={handleOut} >Logout</Link></button>
-            <button ><Link id="button" to="/cart" onClick={handleCart} >Cart</Link></button>
+            <button ><Link id="button" to="/cart" onClick={handleCart} >Cart ({cartItems.length})</Link></button>
         </div>)}
     </nav>
     </div>
