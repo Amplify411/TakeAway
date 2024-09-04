@@ -1,13 +1,13 @@
 import {moneyFormat} from "../util/formattingMoney";
 import { cartAction } from "../store/cart-slice";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import "../cssFiles/meal.css";
 function Meal(props){  
     const dispatch = useDispatch();  
     return (
         <ul className="meal">
             {props.data.map(item => 
-                <li className="meal-item">
+                <li className="meal-item" key={item.id}>
                     <article>
                         <img src={item.image} alt="food-item" />
                         <div>

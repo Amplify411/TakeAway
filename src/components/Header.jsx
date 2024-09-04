@@ -2,12 +2,9 @@ import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import FoodIcon from "../assets/Logo.jpg"
 import { useSelector } from 'react-redux';
-import { cartAction } from "../store/cart-slice";
 import "../cssFiles/header.css";
 function Header(props){
-    const cartItems = useSelector(state=> state.cart.cart)
-    console.log(cartItems);
-    
+    const cartItems = useSelector(state=> state.cart.cart)    
     const logout = props.log;
     const [isLoggedOut, setIsLoggedOut] = useState(logout);
     function handleLogin() {
